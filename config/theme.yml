@@ -1,0 +1,6 @@
+parent: classic
+name: hydrobio
+display-name: Thème enfant du thème classic
+version: 1.0.0
+assets:
+    use_parent_assets: true
