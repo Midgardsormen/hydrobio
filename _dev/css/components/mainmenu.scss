@@ -105,7 +105,13 @@
 #mobile_top_menu_wrapper {
   padding: 15px;
   background: #fff;
-
+  position: fixed;
+  width: 100%;height: 100%;background: $brand-primary;
+  top: 0;
+  left: -100%;
+  .is-open &{
+    left:15px;
+  }
   #top-menu {
     margin-bottom: 0.625rem;
   }
@@ -138,28 +144,25 @@
     }
 
     .collapse {
-      display: none;
+
       &.in {
-        display: block;
+
       }
     }
 
     .sub-menu {
-      position: static;
-      z-index: inherit;
-      display: block;
-      width: 100%;
-      min-width: 100%;
-      margin-left: 0;
-      overflow: hidden;
+      padding: 15px;
       background: #fff;
-      box-shadow: none;
+      position: fixed;
+      width: 100%;height: 100%;background: $brand-primary;
+      top: 0;
+      
 
       &.collapse {
-        display: none;
+        left: -100%;
 
         &.in {
-          display: block;
+          left: -15px;
         }
       }
 

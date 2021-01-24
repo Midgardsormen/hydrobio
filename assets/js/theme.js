@@ -1739,11 +1739,11 @@ var TopMenu = (function (_DropDown) {
 
           elmtClass = classesSelected.join('');
 
-          if (elmtClass && (0, _jquery2['default'])(e.target).data('depth') === 0) {
-            (0, _jquery2['default'])(elmtClass + ' .js-sub-menu').css({
-              top: (0, _jquery2['default'])('' + elmtClass).height() + (0, _jquery2['default'])('' + elmtClass).position().top
-            });
-          }
+          // if (elmtClass && $(e.target).data('depth') === 0) {
+          //   $(`${elmtClass} .js-sub-menu`).css({
+          //     top: $(`${elmtClass}`).height() + $(`${elmtClass}`).position().top,
+          //   });
+          // }
         }
       });
       (0, _jquery2['default'])('#menu-icon').on('click', function () {

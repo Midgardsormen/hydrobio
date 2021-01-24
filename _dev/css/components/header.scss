@@ -45,7 +45,13 @@
     #menu-icon {
       vertical-align: middle;
       cursor: pointer;
-
+      .is-open &{
+        position: fixed;
+        color: $white;
+        left: 1rem;
+        top: 1rem;
+        z-index: 10000;
+      }
       .material-icons {
         line-height: 50px;
       }
@@ -149,7 +155,13 @@
       }
     }
   }
-
+  &.is-open #menu-icon {
+    position: fixed;
+    color: $white;
+    left: 1rem;
+    top: 0.5rem;
+    z-index: 10000;
+  }
   .header-top {
     clear: both;
     padding: 1.25rem 0;
