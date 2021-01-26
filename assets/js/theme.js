@@ -1746,6 +1746,16 @@ var TopMenu = (function (_DropDown) {
           // }
         }
       });
+      (0, _jquery2['default'])('#mobile_top_menu_wrapper .collapse').wrapInner('<div class="scrollContainer"></div>');
+      (0, _jquery2['default'])("#mobile_top_menu_wrapper .navbar-toggler").on('click', function (e) {
+        (0, _jquery2['default'])(".goBack").remove();
+        (0, _jquery2['default'])(e.target).parents("li").find("> div").prepend('<button class="goBack"><i class="material-icons">keyboard_arrow_left</i> Retour</button>');
+        (0, _jquery2['default'])(".goBack").on('click', function (event) {
+          (0, _jquery2['default'])(event.target).parent("div").removeClass('in');
+          (0, _jquery2['default'])(event.target).remove();
+        });
+      });
+
       (0, _jquery2['default'])('#menu-icon').on('click', function () {
         (0, _jquery2['default'])('#mobile_top_menu_wrapper').toggle();
         self.toggleMobileMenu();
@@ -1757,7 +1767,12 @@ var TopMenu = (function (_DropDown) {
         }
         e.stopPropagation();
       });
-
+      (0, _jquery2['default'])(window).on("resize", function () {
+        (0, _jquery2['default'])('#header').removeClass('is-open');
+        (0, _jquery2['default'])('.js-sub-menu').removeClass('in');
+        (0, _jquery2['default'])('#mobile_top_menu_wrapper').hide();
+        (0, _jquery2['default'])('#notifications, #wrapper, #footer').show();
+      });
       _prestashop2['default'].on('responsive update', function () {
         (0, _jquery2['default'])('.js-sub-menu').removeAttr('style');
         self.toggleMobileMenu();

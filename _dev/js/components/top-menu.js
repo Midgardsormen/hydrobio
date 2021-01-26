@@ -50,6 +50,17 @@ export default class TopMenu extends DropDown {
         // }
       }
     });
+    $('#mobile_top_menu_wrapper .collapse').wrapInner('<div class="scrollContainer"></div>');
+    $("#mobile_top_menu_wrapper .navbar-toggler").on('click',(e)=>{
+      $(".goBack").remove();
+      $(e.target).parents("li").find("> div").prepend('<button class="goBack"><i class="material-icons">keyboard_arrow_left</i> Retour</button>');
+      $(".goBack").on('click',(event)=>{
+        $(event.target).parent("div").removeClass('in');
+        $(event.target).remove();
+      });
+    });
+
+
     $('#menu-icon').on('click', () => {
       $('#mobile_top_menu_wrapper').toggle();
       self.toggleMobileMenu();
@@ -61,7 +72,12 @@ export default class TopMenu extends DropDown {
       }
       e.stopPropagation();
     });
-
+    $(window).on("resize", ()=>{
+      $('#header').removeClass('is-open');
+      $('.js-sub-menu').removeClass('in');
+      $('#mobile_top_menu_wrapper').hide()
+      $('#notifications, #wrapper, #footer').show();
+    })
     prestashop.on('responsive update', () => {
       $('.js-sub-menu').removeAttr('style');
       self.toggleMobileMenu();

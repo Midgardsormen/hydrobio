@@ -45,12 +45,23 @@
     #menu-icon {
       vertical-align: middle;
       cursor: pointer;
+      svg {
+          position: relative;
+          z-index: 1;
+          fill:$brand-secondary;
+          width: 2.5rem;
+          
+          path{
+            transition: transform .3s linear;
+            transform-origin: 50% 50%
+          }
+      }
       .is-open &{
         position: fixed;
         color: $white;
         left: 1rem;
         top: 1rem;
-        z-index: 10000;
+        z-index: 2;
       }
       .material-icons {
         line-height: 50px;
@@ -160,7 +171,18 @@
     color: $white;
     left: 1rem;
     top: 0.5rem;
-    z-index: 10000;
+    z-index: 2;
+    path:first-child {
+      transform: translateY(0) rotate(45deg) scaleY(.5);
+      transform-origin: 34% 43%
+    }
+    path:nth-child(2) {
+        transform: rotate(-45deg) scaleY(.5);
+        transform-origin: 50%;
+    }
+    path:nth-child(3) {
+        opacity: 0
+    }
   }
   .header-top {
     clear: both;
