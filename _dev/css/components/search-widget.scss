@@ -1,12 +1,9 @@
 .search-widget {
-  display: inline-block;
   @include search-box();
 }
 
 .header-top {
   .search-widget {
-    clear:both;
-    width: 100%;
     form {
       input[type="text"] {
         width: 100%;
@@ -69,7 +66,5 @@
 }
 
 @include media-breakpoint-up(md) {
-  .search-widget {
-    min-width: 15.63rem;
-  }
+
 }

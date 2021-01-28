@@ -112,8 +112,9 @@
       }
 
       .shopping-cart {
-        color: $gray;
+        color: $brand-quaternary;
         vertical-align: middle;
+        font-size: 1.7rem;
       }
 
       .body {
@@ -220,5 +221,84 @@
 
   .top-menu-link {
     margin-left: $medium-space;
+  }
+  @include media-breakpoint-up(sm) {
+  }
+  @include media-breakpoint-up(sm) {
+    .headerRow {
+      display: flex;
+      align-items: center;
+      #_desktop_user_info, #search_widget, #_desktop_cart, #_desktop_logo, #displayTopHook, #contact-link, #_desktop_contact_link{
+        float: none;
+      }
+    }
+    #_desktop_cart{
+      .header {
+          display: flex;
+          flex-wrap: wrap;
+      }
+      .shopping-cart-icon {
+        color: $brand-quaternary;
+        vertical-align: middle;
+        font-size: 1.7rem;
+      }
+      .shopping-cart-label {
+        color: $brand-secondary;
+      }
+    }
+    #_desktop_contact_link{
+      #contact-link{
+        .accountLink{
+          display: flex;
+          flex-wrap: wrap;
+          .contactInfoIcon{
+            i{
+              color:$brand-primary;
+              font-size:2rem;
+              @include media-breakpoint-up(lg) {
+                font-size:2.5rem;
+              }
+              @include media-breakpoint-up(xl) {
+                font-size:3rem;
+              }
+            }
+          }
+          .contactLinkLabel{
+            color: #38603C;
+            font-size: $font-size-xs;
+            .phoneNumber{
+              display: block;
+              font-weight: 900;
+              font-size: $font-size-h2;
+            }
+          }
+        }
+      }
+    }
+    .user-info, #contact-link{
+      .accountLink{
+        display: flex;
+        align-items: center;
+      }
+      .userInfoIcon {
+        text-align: right;
+        white-space: nowrap;
+        width: 40px;
+        height: 40px;
+        background: $brand-primary;
+        color: $brand-secondary;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .userInfoLabel{
+      }
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    .container{
+      width: $full-screen-size;
+    }
   }
 }

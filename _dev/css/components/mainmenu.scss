@@ -88,15 +88,46 @@
 .popover.bs-tether-element-attached-top {
   margin-top: 0;
 }
-
-#_desktop_top_menu {
-  .top-menu {
-    &[data-depth="0"] {
-      li {
-        &:hover {
-          .sub-menu {
-            visibility: visible;
-            opacity: 1;
+#header{
+  #_desktop_top_menu {
+    position: relative;
+    width: 100%;
+    background: $brand-quaternary;
+    padding: 0 15px;
+    .popover{
+      top: 100%;
+      background: $brand-primary;
+      min-height: 300px;
+    }
+    .top-menu {
+      &[data-depth="0"] {
+        max-width: $full-screen-size;
+        margin: auto;
+        li {
+          a{
+            color: $white;
+            font-weight: 400;
+            &:hover {
+              background: $brand-primary;
+              color: $brand-quaternary;
+            }
+          }
+          &:hover {
+            .sub-menu {
+              visibility: visible;
+              opacity: 1;
+            }
+          }
+          li{
+            a{
+              color: $brand-secondary;
+              font-weight: 700;
+            }
+            li{
+              a{
+                color: $brand-quaternary;
+              }
+            }
           }
         }
       }
@@ -183,13 +214,13 @@
         box-shadow: 2px 1px 11px 2px rgba(0,0,0,.1);
         top: 0;
         left: -100%;
-        transition: 0.5s ease-out;
+        transition: 0.5s 0s ease-out;
         display: block;
         overflow-y: auto;
         transition-delay:0ms;
         &.in {
           left: 0;
-          transition: 0.5s ease-out;
+          transition: 0.5s 0s ease-out;
           transition-delay:0ms;
         }
         .scrollContainer{
