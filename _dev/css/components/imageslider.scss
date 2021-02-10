@@ -1,6 +1,10 @@
 .carousel {
   margin-bottom: 1.5rem;
   box-shadow: 1px 1px 7px 0 rgba(0, 0, 0, 0.15);
+  &__section{
+    background-color: $brand-tertiary;
+    padding: $medium-space;
+  }
 
   .direction {
     z-index: auto;

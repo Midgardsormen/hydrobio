@@ -29,7 +29,9 @@ $product-description-height: 70px;
     height: auto;
     margin-bottom: 1.563rem;
     background: #fff;
+    overflow: hidden;
     @include box-shadow();
+    @include border-radius();
 
     &:hover,
     &:focus {
@@ -87,15 +89,7 @@ $product-description-height: 70px;
     text-transform: capitalize;
   }
 
-  .product-price-and-shipping {
-    font-weight: 700;
-    color: $gray-darker;
-    text-align: center;
 
-    .discount-product {
-      display: none;
-    }
-  }
 
   .variant-links {
     position: relative;
@@ -143,15 +137,101 @@ $product-description-height: 70px;
 
   .product-miniature {
     margin: 0 0.8125rem;
+    .price_section{
+      display: flex;
+      height: 60px;
+      position: relative;
+      z-index: 4;
+      .product-price-and-shipping {
+        background-color: $brand-primary;
+        font-weight: 900;
+        color: $brand-quaternary;
+        text-align: center;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        padding: 0 $small-space;
+        font-size: $display4-size;
+        width: 50%;
+        display: flex;
+        &--discount{
+          background-color: $brand-discount;
+          color: $white;
+        }
+        .price{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: $price-size1;
+          .afterComaPrice{
+            font-weight: 700;
+            font-size: $font-size-sm;
+            display: flex;
+            flex-direction: column;
+            margin-left: 5px;
+            line-height: 1;
+            .euro{
+              font-size: $display4-size;
+            }
+          }
+        }
 
-    .product-flags {
-      li.product-flag {
-        min-width: 3.125rem;
-        min-height: 1.875rem;
-        font-weight: 600;
-
-        &.online-only {
-          top: 13.1rem;
+        .discount-product {
+          display: none;
+        }
+      }
+      .product_discountOrFlag{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .regular-price {
+          display: inline-block;
+          font-size: $base-font-size;
+          color: $brand-secondary;
+          font-weight: 700;
+          text-decoration: line-through;
+          margin-bottom: 5px;
+        }
+        .discount-percentage{
+          &.discount-product{
+            font-size: $display3-size;
+            font-weight: 900;
+            color: $brand-discount;
+          }
+        }
+        .product-flags {
+          position: relative;
+          left: auto;
+          top: auto;
+          width: 100%;
+          height: 100%;
+          margin-bottom: 0;
+          .product-flag {
+            display: flex;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            margin: 0;
+            color: $white;
+            &.new {
+              background: $brand-new;
+            }
+            &.pack {
+              background: #bc5ea6;
+            }
+            &.online-only {
+              background: $btn-tertiary-color;
+            }
+            &.firstPrice{
+              background: #ECA515;
+              color: $brand-secondary;
+            }
+          }
         }
       }
     }
@@ -162,12 +242,7 @@ $product-description-height: 70px;
     text-align: center;
   }
 
-  .regular-price {
-    display: inline-block;
-    font-size: $font-size-sm;
-    color: $gray;
-    text-decoration: line-through;
-  }
+
 
   .count {
     position: relative;
