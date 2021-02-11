@@ -35,7 +35,7 @@
       <div class="row">
         <div class="hidden-sm-down">
           <div class="col-md-5 col-xs-12">
-            {hook h='displayNav1'} 
+
           </div>
           <div class="col-md-7 right-nav">
               {hook h='displayNav2'}
@@ -43,11 +43,11 @@
         </div>
         <div class="hidden-md-up text-sm-center mobile header-nav-mobile">
           <div class="float-xs-left" id="menu-icon">
-<svg viewBox="0 0 500 500" y="0" x="0">
-    <path d="m412.5 173h-325c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h325c6.6 0 12 5.4 12 12v24c0 6.6-5.4 12-12 12z"></path>
-    <path d="m412.5 275h-325c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h325c6.6 0 12 5.4 12 12v24c0 6.6-5.4 12-12 12z" data-tracker-optimeeze-index="0"></path>
-    <path d="m412.5 375h-325c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h325c6.6 0 12 5.4 12 12v24c0 6.6-5.4 12-12 12z"></path>
-</svg>
+            <svg viewBox="0 0 500 500" y="0" x="0">
+                <path d="m412.5 173h-325c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h325c6.6 0 12 5.4 12 12v24c0 6.6-5.4 12-12 12z"></path>
+                <path d="m412.5 275h-325c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h325c6.6 0 12 5.4 12 12v24c0 6.6-5.4 12-12 12z" data-tracker-optimeeze-index="0"></path>
+                <path d="m412.5 375h-325c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h325c6.6 0 12 5.4 12 12v24c0 6.6-5.4 12-12 12z"></path>
+            </svg>
           </div>
           <div class="top-logo" id="_mobile_logo"></div>
           <div class="float-xs-right" id="_mobile_cart"></div>
@@ -62,8 +62,8 @@
 {block name='header_top'}
   <div class="header-top">
     <div class="container">
-       <div class="row">
-        <div class="col-md-2 hidden-sm-down" id="_desktop_logo">
+       <div class="row headerRow">
+        <div class="col-md-3 col-lg-2 hidden-sm-down" id="_desktop_logo">
             {if $page.page_name == 'index'}
               <h1>
                 <a href="{$urls.base_url}">
@@ -76,8 +76,10 @@
                 </a>
             {/if}
         </div>
-        <div class="col-md-10 col-sm-12 position-static">
-          {hook h='displayTop'}
+        <div id="displayTopHook" class="col-md-9 col-lg-10 col-sm-12 position-static">
+          <div class="row headerRow">
+            {hook h='displayTop'} {hook h='displayNav1'} 
+          </div>
           <div class="clearfix"></div>
         </div>
       </div>

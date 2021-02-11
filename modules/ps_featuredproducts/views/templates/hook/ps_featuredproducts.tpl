@@ -22,28 +22,15 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-<div id="_desktop_contact_link" class="col-md-3 col-lg-3 col-xl-2">
-  <div id="contact-link">
-    <a href="{$urls.pages.contact}" class="accountLink">
-        <span class="contactInfoIcon">
-          <i class="material-icons">smartphone</i>
-        </span>
-        <span class="contactLinkLabel">
-          {if $contact_infos.phone}
-            {* [1][/1] is for a HTML tag. *}
-            {l
-              s='Call us: [1]%phone%[/1]'
-              sprintf=[
-                '[1]' => '<span class="phoneNumber">',
-                '[/1]' => '</span>',
-                '%phone%' => $contact_infos.phone
-              ]
-              d='Shop.Theme.Global'
-            }
-          {else}
-            <span class="contactLink">{l s='Contact us' d='Shop.Theme.Global'}</span>
-          {/if}
-      </span>
-    </a>
+
+<section class="featured-products clearfix">
+<div class="container">
+  <h2 class="h2 products-section-title text-uppercase">
+    {l s='Popular Products' d='Shop.Theme.Catalog'}
+  </h2>
+  {include file="catalog/_partials/productlist.tpl" products=$products cssClass="row"}
+  <a class="all-product-link float-xs-left float-md-right h4" href="{$allProductsLink}">
+    {l s='All products' d='Shop.Theme.Catalog'}<i class="material-icons">&#xE315;</i>
+  </a>
   </div>
-</div>
+</section>

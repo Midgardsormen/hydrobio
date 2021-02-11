@@ -52,33 +52,7 @@
           {/if}
         {/block}
 
-        {block name='product_price_and_shipping'}
-          {if $product.show_price}
-            <div class="product-price-and-shipping">
-              {if $product.has_discount}
-                {hook h='displayProductPriceBlock' product=$product type="old_price"}
 
-                <span class="regular-price" aria-label="{l s='Regular price' d='Shop.Theme.Catalog'}">{$product.regular_price}</span>
-                {if $product.discount_type === 'percentage'}
-                  <span class="discount-percentage discount-product">{$product.discount_percentage}</span>
-                {elseif $product.discount_type === 'amount'}
-                  <span class="discount-amount discount-product">{$product.discount_amount_to_display}</span>
-                {/if}
-              {/if}
-
-              {hook h='displayProductPriceBlock' product=$product type="before_price"}
-
-              <span class="price" aria-label="{l s='Price' d='Shop.Theme.Catalog'}">{$product.price}</span>
-              <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="invisible">
-                <meta itemprop="priceCurrency" content="{$currency.iso_code}" />
-                <meta itemprop="price" content="{$product.price_amount}" />
-              </div>
-
-              {hook h='displayProductPriceBlock' product=$product type='unit_price'}
-
-              {hook h='displayProductPriceBlock' product=$product type='weight'}
-            </div>
-          {/if}
         {/block}
 
         {block name='product_reviews'}
@@ -86,7 +60,7 @@
         {/block}
       </div>
 
-      {include file='catalog/_partials/product-flags.tpl'}
+
 
       <div class="highlighted-informations{if !$product.main_variants} no-variants{/if} hidden-sm-down">
         {block name='quick_view'}
@@ -101,6 +75,68 @@
           {/if}
         {/block}
       </div>
+      <div class="price_section">
+          {block name='product_price_and_shipping'}
+          {if $product.show_price}
+            <div class="product-price-and-shipping {if $product.has_discount}product-price-and-shipping--discount {/if}">
+              {hook h='displayProductPriceBlock' product=$product type="before_price"}
+
+              {assign var="splittedPrice" value=","|explode:$product.price}
+              {assign var="priceBeforeComa" value=$splittedPrice[0]}
+              {assign var="splittedPriceafterComa" value=$splittedPrice[1]|substr:0:2}
+              {assign var="priceAfterComa" value=$splittedPriceafterComa}
+
+              <span class="price" aria-label="{l s='Price' d='Shop.Theme.Catalog'}">{$priceBeforeComa}<span class="afterComaPrice"><span class="euro">€</span>{$priceAfterComa}</span></span>
+              <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="invisible">
+                <meta itemprop="priceCurrency" content="{$currency.iso_code}" />
+                <meta itemprop="price" content="{$product.price_amount}" />
+              </div>
+
+              {hook h='displayProductPriceBlock' product=$product type='unit_price'}
+
+              {hook h='displayProductPriceBlock' product=$product type='weight'}
+            </div>
+          {/if}
+
+          <div class="product_discountOrFlag">
+              {if $product.has_discount}
+                {hook h='displayProductPriceBlock' product=$product type="old_price"}
+
+                <span class="regular-price" aria-label="{l s='Regular price' d='Shop.Theme.Catalog'}">{$product.regular_price}</span>
+                {if $product.discount_type === 'percentage'}
+                  <span class="discount-percentage discount-product">{$product.discount_percentage}</span>
+                {elseif $product.discount_type === 'amount'}
+                  <span class="discount-amount discount-product">{$product.discount_amount_to_display}</span>
+                {/if}
+              {else}
+
+              {block name='product_flags'}
+                  <div class="product-flags">
+                      
+                      {if $product.grouped_features && array_key_exists ("Premier prix", $product.grouped_features)}
+                        {foreach from=$product.grouped_features item=feature}
+                          {if  $feature.name == "Premier prix" && $feature.value == "oui"}
+                            <span class="product-flag firstPrice"> 1er prix</span>
+                          {/if}
+                        {/foreach}
+                      {else}
+                        {foreach from=$product.flags item=flag name=productFlags}
+                          {if $smarty.foreach.productFlags.index == 0 && $flag.type == "online-only"}
+                            <span class="product-flag {$flag.type}">{$flag.label}</span>
+                          {elseif $smarty.foreach.productFlags.index == 0 && $flag.type == "pack"}
+                            <span class="product-flag {$flag.type}">{$flag.label}</span>
+                          {elseif $smarty.foreach.productFlags.index == 1 && $flag.type == "pack"}
+                            <span class="product-flag {$flag.type}">{$flag.label}</span>
+                          {elseif $smarty.foreach.productFlags.index == 0 && $flag.type == "new"}
+                            <span class="product-flag {$flag.type}">{$flag.label}</span>
+                          {/if}
+                        {/foreach}
+                      {/if}
+                  </div>
+              {/block}              
+              {/if}
+          </div>
+        </div>
     </div>
   </article>
 </div>

@@ -22,28 +22,15 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-<div id="_desktop_contact_link" class="col-md-3 col-lg-3 col-xl-2">
-  <div id="contact-link">
-    <a href="{$urls.pages.contact}" class="accountLink">
-        <span class="contactInfoIcon">
-          <i class="material-icons">smartphone</i>
-        </span>
-        <span class="contactLinkLabel">
-          {if $contact_infos.phone}
-            {* [1][/1] is for a HTML tag. *}
-            {l
-              s='Call us: [1]%phone%[/1]'
-              sprintf=[
-                '[1]' => '<span class="phoneNumber">',
-                '[/1]' => '</span>',
-                '%phone%' => $contact_infos.phone
-              ]
-              d='Shop.Theme.Global'
-            }
-          {else}
-            <span class="contactLink">{l s='Contact us' d='Shop.Theme.Global'}</span>
-          {/if}
-      </span>
-    </a>
-  </div>
+<!-- Block search module TOP -->
+<div id="search_widget" class="search-widget col-md-3 col-lg-4 col-xl-6 col-sm-12" data-search-controller-url="{$search_controller_url}">
+	<form method="get" action="{$search_controller_url}">
+		<input type="hidden" name="controller" value="search">
+		<input type="text" name="s" value="{$search_string}" placeholder="{l s='Search our catalog' d='Shop.Theme.Catalog'}" aria-label="{l s='Search' d='Shop.Theme.Catalog'}">
+		<button type="submit">
+			<i class="material-icons search">&#xE8B6;</i>
+      <span class="hidden-xl-down">{l s='Search' d='Shop.Theme.Catalog'}</span>
+		</button>
+	</form>
 </div>
+<!-- /Block search module TOP -->

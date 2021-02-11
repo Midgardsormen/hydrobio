@@ -22,34 +22,31 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-<div id="_desktop_user_info">
+<div id="_desktop_user_info" class="col-md-3 col-lg-3 col-xl-2">
   <div class="user-info">
     {if $logged}
       <a
-        class="logout hidden-sm-down"
-        href="{$logout_url}"
-        rel="nofollow"
-      >
-        <i class="material-icons">person</i>
-        {l s='Sign out' d='Shop.Theme.Actions'}
-      </a>
-      <a
-        class="account"
+        class="account accountLink"
         href="{$my_account_url}"
         title="{l s='View my customer account' d='Shop.Theme.Customeraccount'}"
         rel="nofollow"
       >
-        <i class="material-icons hidden-md-up logged">person</i>
-        <span class="hidden-sm-down">{$customerName}</span>
+         <span class="userInfoIcon logged">
+          <i class="material-icons logged">person</i>
+        </span>
+        <span class="hidden-sm-down userInfoLabel">{$customerName}</span>
       </a>
     {else}
       <a
+        class="accountLink"
         href="{$my_account_url}"
         title="{l s='Log in to your customer account' d='Shop.Theme.Customeraccount'}"
         rel="nofollow"
       >
+        <span class="userInfoIcon">
         <i class="material-icons">person</i>
-        <span class="hidden-sm-down">{l s='Sign in' d='Shop.Theme.Actions'}</span>
+        </span>
+        <span class="hidden-sm-down userInfoLabel">{l s='Sign in' d='Shop.Theme.Actions'}</span>
       </a>
     {/if}
   </div>

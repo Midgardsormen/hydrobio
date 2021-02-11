@@ -22,28 +22,20 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-<div id="_desktop_contact_link" class="col-md-3 col-lg-3 col-xl-2">
-  <div id="contact-link">
-    <a href="{$urls.pages.contact}" class="accountLink">
-        <span class="contactInfoIcon">
-          <i class="material-icons">smartphone</i>
+<div id="_desktop_cart" class="col-md-3 col-lg-2 col-xl-2">
+  <div class="blockcart cart-preview {if $cart.products_count > 0}active{else}inactive{/if}" data-refresh-url="{$refresh_url}">
+    <div class="header">
+      {if $cart.products_count > 0}
+        <a rel="nofollow" href="{$cart_url}">
+      {/if}
+        <i class="material-icons shopping-cart shopping-cart-icon">shopping_cart</i>
+        <span>
+          <span class="hidden-sm-down shopping-cart-label">{l s='Cart' d='Shop.Theme.Checkout'}</span>
+          <span class="cart-products-count">({$cart.products_count})</span>
         </span>
-        <span class="contactLinkLabel">
-          {if $contact_infos.phone}
-            {* [1][/1] is for a HTML tag. *}
-            {l
-              s='Call us: [1]%phone%[/1]'
-              sprintf=[
-                '[1]' => '<span class="phoneNumber">',
-                '[/1]' => '</span>',
-                '%phone%' => $contact_infos.phone
-              ]
-              d='Shop.Theme.Global'
-            }
-          {else}
-            <span class="contactLink">{l s='Contact us' d='Shop.Theme.Global'}</span>
-          {/if}
-      </span>
-    </a>
+      {if $cart.products_count > 0}
+        </a>
+      {/if}
+    </div>
   </div>
 </div>
