@@ -1,10 +1,31 @@
-$thumbnail-size: 250px;
+$thumbnail-size: 100%;
 $product-description-height: 70px;
-
+.product-miniature-item{
+  width: 250px;
+  @include media-breakpoint-up(sm) {
+    width:50%
+  }
+  @include media-breakpoint-up(md) {
+    width:33.33%
+  }
+  @include media-breakpoint-up(lg) {
+    width:25%
+  }
+  @include media-breakpoint-up(xl) {
+    width:20%
+  }
+  @media (min-width: 1370px){
+    width:16.66%;
+    .left-column &{
+      width:20%;
+    }
+  }
+}
 #products,
 .featured-products,
 .product-accessories,
 .product-miniature {
+
   .products {
     display: flex;
     flex-wrap: wrap;
@@ -80,7 +101,9 @@ $product-description-height: 70px;
   .products-section-title {
     margin: 2.5rem 0;
     font-weight: 500;
-    text-align: center;
+    text-align: left;
+    color: $brand-quaternary;
+    font-size: $custom-h2;
   }
 
   .product-title {
@@ -137,11 +160,15 @@ $product-description-height: 70px;
 
   .product-miniature {
     margin: 0 0.8125rem;
+    @include media-breakpoint-up(xl) {
+      margin: 0 0.7294em;
+    }
     .price_section{
       display: flex;
       height: 60px;
       position: relative;
       z-index: 4;
+      background: $white;
       .product-price-and-shipping {
         background-color: $brand-primary;
         font-weight: 900;

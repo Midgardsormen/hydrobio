@@ -22,7 +22,6 @@
 }
 
 .block-category {
-  min-height: 13.75rem;
   margin-bottom: 1.563rem;
 
   h1 {
@@ -101,6 +100,12 @@
     .btn-secondary {
       padding: 0.75rem 0.5rem 0.6875rem;
     }
+  }
+  &#js-product-list-top{
+    background-color: $brand-tertiary;
+    margin-left: 0;
+    margin-right: 0;
+    padding: $small-space;
   }
 }
 
@@ -203,13 +208,12 @@
 #search_filters,
 #search_filters_brands,
 #search_filters_suppliers {
-  @include box-shadow();
-  padding: 1.563rem 1.25rem;
+  padding:  0 0 1.563rem ;
   margin-bottom: 1.563rem;
   background: #fff;
 
   > .h6 {
-    font-size: 1.5rem;
+    font-size: $font-size-h2;
     font-weight: 500;
   }
 
@@ -555,7 +559,7 @@
       width: 100%;
     }
   }
-
+  
   .products-sort-order {
     .select-title {
       margin-left: 0;
@@ -572,6 +576,7 @@
     .showing {
       padding-top: 1rem;
     }
+
   }
 
   #prices-drop #content-wrapper,

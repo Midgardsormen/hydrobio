@@ -1,18 +1,24 @@
 #footer {
   padding-top: 2.5rem;
   clear: both;
+  .h1,
+  .h2,
+  .h3, h4 {
+    color: $white;
+  }
+  
 }
 
 .block-contact {
   font-size: 0.875rem;
-  color: $gray;
+  color: $white;
 
   .block-contact-title {
-    color: $gray-darker;
+    color: $white;
   }
 
   .navbar-toggler .material-icons {
-    color: $gray-darker;
+    color: $white;
   }
 
   @include media-breakpoint-down(sm) {
@@ -25,15 +31,15 @@
 
 .linklist {
   .blockcms-title a {
-    color: $gray-darker;
+    color: $white;
   }
 }
 
 .account-list a {
-  color: $gray;
+  color: $brand-primary;
 
   &:hover {
-    color: $brand-primary;
+    color: $brand-tertiary;
   }
 }
 
@@ -46,11 +52,12 @@
 }
 
 .block-social {
+  padding-top: $extra-small-space;
   text-align: right;
 
   ul {
     display: flex;
-
+    margin-bottom: 0;
     @include media-breakpoint-down(sm) {
       flex-flow: wrap;
     }
@@ -59,16 +66,15 @@
       display: inline-block;
       width: 2.5rem;
       height: 2.5rem;
-      margin: 0.125rem;
+      margin: 0.125rem 0.125rem 0;
       cursor: pointer;
-      background-color: $gray-light;
       background-repeat: no-repeat;
+      border-radius: 100%;
 
       @include media-breakpoint-down(sm) {
         width: 2rem;
         height: 2rem;
         margin-right: 1.3rem;
-        margin-bottom: 1.3rem;
         background-size: contain;
       }
 
@@ -92,6 +98,7 @@
 }
 .facebook {
   background-image: url("../img/facebook.svg");
+  background-color:$bg-facebook;
 
   &::before {
     content: "";
@@ -155,7 +162,7 @@
 
 #block_myaccount_infos {
   .myaccount-title a {
-    color: $gray-darker;
+    color: $white;
   }
 }
 .pinterest {
@@ -184,6 +191,7 @@
 }
 
 .footer-container {
+  background-color: $brand-secondary;
   padding-top: $extra-large-space;
   overflow: hidden;
   box-shadow: 2px 2px 11px 0 rgba(0, 0, 0, 0.3);
@@ -200,7 +208,7 @@
 
   li a {
     font-size: $font-size-sm;
-    color: $gray;
+    color: $white;
     cursor: pointer;
 
     &:hover {
@@ -240,15 +248,14 @@
 
       ul {
         margin-bottom: 0;
-        background-color: $gray-lighter;
+        padding: 1rem;
 
         > li {
           padding: 0.625rem;
-          font-weight: 600;
           border-bottom: 1px solid #fff;
 
           a {
-            color: $gray-darker;
+            color: $white;
           }
         }
       }

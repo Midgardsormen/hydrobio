@@ -296,9 +296,4 @@
       }
     }
   }
-  @include media-breakpoint-up(xl) {
-    .container{
-      width: $full-screen-size;
-    }
-  }
 }
