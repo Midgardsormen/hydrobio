@@ -22,23 +22,15 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-<nav data-depth="{$breadcrumb.count}" class="breadcrumb hidden-sm-down container">
-  <ol itemscope itemtype="http://schema.org/BreadcrumbList">
-    {block name='breadcrumb'}
-      {foreach from=$breadcrumb.links item=path name=breadcrumb}
-        {block name='breadcrumb_item'}
-          {if not $smarty.foreach.breadcrumb.last}
-            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <a itemprop="item" href="{$path.url}"><span itemprop="name">{$path.title}</span></a>
-              <meta itemprop="position" content="{$smarty.foreach.breadcrumb.iteration}">
-            </li>
-          {elseif isset($path.title)}
-            <li>
-              <span>{$path.title}</span>
-            </li>
-          {/if}
-        {/block}
-      {/foreach}
-    {/block}
-  </ol>
-</nav>
+{if isset($listing.rendered_facets)}
+<div id="search_filters_wrapper" class="hidden-sm-down">
+  <div id="search_filter_controls" class="hidden-md-up">
+      <span id="_mobile_search_filters_clear_all"></span>
+      <button class="btn btn-secondary ok">
+        <i class="material-icons rtl-no-flip">&#xE876;</i>
+        {l s='OK' d='Shop.Theme.Actions'}
+      </button>
+  </div>
+  {$listing.rendered_facets nofilter}
+</div>
+{/if}

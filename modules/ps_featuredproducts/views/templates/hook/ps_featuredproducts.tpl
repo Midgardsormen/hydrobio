@@ -25,12 +25,12 @@
 
 <section class="featured-products clearfix">
 <div class="container">
-  <h2 class="h2 products-section-title text-uppercase">
+  <h2 class="h2 products-section-title">
     {l s='Popular Products' d='Shop.Theme.Catalog'}
   </h2>
   {include file="catalog/_partials/productlist.tpl" products=$products cssClass="row"}
-  <a class="all-product-link float-xs-left float-md-right h4" href="{$allProductsLink}">
+  {* <a class="all-product-link float-xs-left float-md-right h4" href="{$allProductsLink}">
     {l s='All products' d='Shop.Theme.Catalog'}<i class="material-icons">&#xE315;</i>
-  </a>
+  </a> *}
   </div>
 </section>

@@ -23,7 +23,7 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
 {block name='product_miniature_item'}
-<div itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class="product-miniature-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
   {if isset($position)}<meta itemprop="position" content="{$position}" />{/if}
   <article class="product-miniature js-product-miniature" data-id-product="{$product.id_product}" data-id-product-attribute="{$product.id_product_attribute}" itemprop="item" itemscope itemtype="http://schema.org/Product">
     <div class="thumbnail-container">
@@ -61,20 +61,21 @@
       </div>
 
 
+      {if $product.main_variants}
+        <div class="highlighted-informations{if !$product.main_variants} no-variants{/if} hidden-sm-down">
+          {* {block name='quick_view'}
+            <a class="quick-view" href="#" data-link-action="quickview">
+              <i class="material-icons search">&#xE8B6;</i> {l s='Quick view' d='Shop.Theme.Actions'}
+            </a>
+          {/block} *}
 
-      <div class="highlighted-informations{if !$product.main_variants} no-variants{/if} hidden-sm-down">
-        {block name='quick_view'}
-          <a class="quick-view" href="#" data-link-action="quickview">
-            <i class="material-icons search">&#xE8B6;</i> {l s='Quick view' d='Shop.Theme.Actions'}
-          </a>
-        {/block}
+          {block name='product_variants'}
+          
+              {include file='catalog/_partials/variant-links.tpl' variants=$product.main_variants}
 
-        {block name='product_variants'}
-          {if $product.main_variants}
-            {include file='catalog/_partials/variant-links.tpl' variants=$product.main_variants}
-          {/if}
-        {/block}
-      </div>
+          {/block}
+        </div> 
+      {/if}
       <div class="price_section">
           {block name='product_price_and_shipping'}
           {if $product.show_price}

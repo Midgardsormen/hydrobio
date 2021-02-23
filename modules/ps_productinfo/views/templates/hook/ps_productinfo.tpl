@@ -22,23 +22,22 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-<nav data-depth="{$breadcrumb.count}" class="breadcrumb hidden-sm-down container">
-  <ol itemscope itemtype="http://schema.org/BreadcrumbList">
-    {block name='breadcrumb'}
-      {foreach from=$breadcrumb.links item=path name=breadcrumb}
-        {block name='breadcrumb_item'}
-          {if not $smarty.foreach.breadcrumb.last}
-            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <a itemprop="item" href="{$path.url}"><span itemprop="name">{$path.title}</span></a>
-              <meta itemprop="position" content="{$smarty.foreach.breadcrumb.iteration}">
-            </li>
-          {elseif isset($path.title)}
-            <li>
-              <span>{$path.title}</span>
-            </li>
-          {/if}
-        {/block}
-      {/foreach}
-    {/block}
-  </ol>
-</nav>
+<div class="js-productinfo mt-1">
+  {if isset($vars_nb_people)}
+    <p>
+      {if $vars_nb_people['%nb_people%'] == 1}
+        {l s='1 person is currently watching this product.' d='Shop.Theme.Catalog'}
+      {else}
+        {l s='%nb_people% people are currently watching this product.' sprintf=$vars_nb_people d='Shop.Theme.Catalog'}
+      {/if}
+    </p>
+  {/if}
+
+  {if isset($vars_date_last_order)}
+    <p>{l s='Last time this product was bought: %date_last_order%' sprintf=$vars_date_last_order d='Shop.Theme.Catalog'}</p>
+  {/if}
+
+  {if isset($vars_date_last_cart)}
+    <p>{l s='Last time this product was added to a cart: %date_last_cart%' sprintf=$vars_date_last_cart d='Shop.Theme.Catalog'}</p>
+  {/if}
+</div>

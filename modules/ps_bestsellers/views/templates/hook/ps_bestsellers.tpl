@@ -22,23 +22,14 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-<nav data-depth="{$breadcrumb.count}" class="breadcrumb hidden-sm-down container">
-  <ol itemscope itemtype="http://schema.org/BreadcrumbList">
-    {block name='breadcrumb'}
-      {foreach from=$breadcrumb.links item=path name=breadcrumb}
-        {block name='breadcrumb_item'}
-          {if not $smarty.foreach.breadcrumb.last}
-            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <a itemprop="item" href="{$path.url}"><span itemprop="name">{$path.title}</span></a>
-              <meta itemprop="position" content="{$smarty.foreach.breadcrumb.iteration}">
-            </li>
-          {elseif isset($path.title)}
-            <li>
-              <span>{$path.title}</span>
-            </li>
-          {/if}
-        {/block}
-      {/foreach}
-    {/block}
-  </ol>
-</nav>
+<section class="featured-products clearfix mt-3">
+  <div class="container">
+      <h2 class="h2 products-section-title">
+        {l s='Best Sellers' d='Shop.Theme.Catalog'}
+      </h2>
+      {include file="catalog/_partials/productlist.tpl" products=$products}
+      <a class="all-product-link float-xs-left float-md-right h4" href="{$allBestSellers}">
+        {l s='All best sellers' d='Shop.Theme.Catalog'}<i class="material-icons">&#xE315;</i>
+      </a>
+    </div>
+</section>

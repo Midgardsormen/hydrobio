@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 29);
+/******/ 	return __webpack_require__(__webpack_require__.s = 30);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -955,35 +955,37 @@ module.exports = __webpack_amd_options__;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-__webpack_require__(28);
+__webpack_require__(29);
 
-__webpack_require__(22);
-
-__webpack_require__(24);
-
-__webpack_require__(21);
+__webpack_require__(23);
 
 __webpack_require__(25);
 
+__webpack_require__(22);
+
+__webpack_require__(26);
+
+__webpack_require__(21);
+
 __webpack_require__(20);
 
-__webpack_require__(19);
+__webpack_require__(11);
 
-__webpack_require__(10);
-
-__webpack_require__(14);
-
-__webpack_require__(17);
+__webpack_require__(15);
 
 __webpack_require__(18);
 
+__webpack_require__(19);
+
 __webpack_require__(9);
+
+__webpack_require__(10);
 
 var _prestashop = __webpack_require__(1);
 
 var _prestashop2 = _interopRequireDefault(_prestashop);
 
-var _events = __webpack_require__(23);
+var _events = __webpack_require__(24);
 
 var _events2 = _interopRequireDefault(_events);
 
@@ -991,7 +993,7 @@ var _componentsDropDown = __webpack_require__(2);
 
 var _componentsDropDown2 = _interopRequireDefault(_componentsDropDown);
 
-var _componentsForm = __webpack_require__(12);
+var _componentsForm = __webpack_require__(13);
 
 var _componentsForm2 = _interopRequireDefault(_componentsForm);
 
@@ -1003,15 +1005,15 @@ var _componentsProductSelect = __webpack_require__(4);
 
 var _componentsProductSelect2 = _interopRequireDefault(_componentsProductSelect);
 
-var _componentsTopMenu = __webpack_require__(13);
+var _componentsTopMenu = __webpack_require__(14);
 
 var _componentsTopMenu2 = _interopRequireDefault(_componentsTopMenu);
 
-__webpack_require__(15);
-
 __webpack_require__(16);
 
-__webpack_require__(11);
+__webpack_require__(17);
+
+__webpack_require__(12);
 
 var _jquery = __webpack_require__(0);
 
@@ -1414,6 +1416,18 @@ var CheckUpdateQuantityOperations = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+var categoryHeader = document.getElementById('js-product-list-header');
+var breadcrumbElement = document.getElementById('breadcrumbElement');
+
+breadcrumbElement.insertAdjacentElement('afterend', categoryHeader);
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /**
  * Copyright since 2007 PrestaShop SA and Contributors
  * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
@@ -1502,7 +1516,7 @@ function toggleImage() {
 });
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1566,7 +1580,7 @@ _prestashop2['default'].blockcart.showModal = function (html) {
 };
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1654,7 +1668,7 @@ exports['default'] = Form;
 module.exports = exports['default'];
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1798,7 +1812,7 @@ exports['default'] = TopMenu;
 module.exports = exports['default'];
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1856,7 +1870,7 @@ function setupCustomerScripts() {
 (0, _jquery2['default'])(document).ready(setupCustomerScripts);
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2078,7 +2092,7 @@ function setupCustomerScripts() {
 })(window.jQuery);
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2243,7 +2257,7 @@ function setupCustomerScripts() {
 })(jQuery);
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2439,7 +2453,7 @@ function updateProductListDOM(data) {
 }
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2616,7 +2630,7 @@ var _componentsProductSelect2 = _interopRequireDefault(_componentsProductSelect)
 });
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2709,7 +2723,7 @@ function toggleMobileStyles() {
 });
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2797,7 +2811,7 @@ _prestashop2['default'].themeSelectors = {
 });
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3480,7 +3494,7 @@ _prestashop2['default'].themeSelectors = {
 })(jQuery);
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4277,7 +4291,7 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
 })();
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4550,7 +4564,7 @@ function isUndefined(arg) {
 }
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4733,7 +4747,7 @@ var require;var require;
 });
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5014,7 +5028,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 });
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6954,7 +6968,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! tether 1.4
 });
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6982,14 +6996,14 @@ try {
 module.exports = g;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["Tether"] = __webpack_require__(26);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(27)))
+/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["Tether"] = __webpack_require__(27);
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28)))
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(7);
