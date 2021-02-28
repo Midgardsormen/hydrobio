@@ -27,3 +27,37 @@
     }
   }
 }
+#product{
+  .blockreassurance_product{
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between ;
+    }
+  
+    &--item{
+      display: flex;
+      padding: 0 15px;
+      @include media-breakpoint-up(lg) {
+        width: 33%;
+      }
+      .item-product{
+        margin-right: $small-space;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $brand-quaternary;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        padding: 0;
+        svg{
+          max-height: 70%;
+        }
+        path{
+          fill: $brand-primary;
+        }
+      }
+    }
+  }
+}

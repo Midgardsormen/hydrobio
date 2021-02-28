@@ -24,18 +24,9 @@
  *}
 {if $product.show_price}
   <div class="product-prices">
-    {block name='product_discount'}
-      {if $product.has_discount}
-        <div class="product-discount">
-          {hook h='displayProductPriceBlock' product=$product type="old_price"}
-          <span class="regular-price">{$product.regular_price}</span>
-        </div>
-      {/if}
-    {/block}
-
     {block name='product_price'}
       <div
-        class="product-price h5 {if $product.has_discount}has-discount{/if}"
+        class="h5 {if $product.has_discount}has-discount{/if}"
         itemprop="offers"
         itemscope
         itemtype="https://schema.org/Offer"
@@ -43,18 +34,27 @@
         <link itemprop="availability" href="{$product.seo_availability}"/>
         <meta itemprop="priceCurrency" content="{$currency.iso_code}">
 
-        <div class="current-price">
-          <span itemprop="price" content="{$product.rounded_display_price}">{$product.price}</span>
-
-          {if $product.has_discount}
-            {if $product.discount_type === 'percentage'}
-              <span class="discount discount-percentage">{l s='Save %percentage%' d='Shop.Theme.Catalog' sprintf=['%percentage%' => $product.discount_percentage_absolute]}</span>
-            {else}
-              <span class="discount discount-amount">
-                  {l s='Save %amount%' d='Shop.Theme.Catalog' sprintf=['%amount%' => $product.discount_to_display]}
-              </span>
+        <div class="current-price price_section">
+          <div class="product-price-and-shipping {if $product.has_discount}product-price-and-shipping--discount {/if}">
+                {assign var="splittedPrice" value=","|explode:$product.price}
+                {assign var="priceBeforeComa" value=$splittedPrice[0]}
+                {assign var="splittedPriceafterComa" value=$splittedPrice[1]|substr:0:2}
+                {assign var="priceAfterComa" value=$splittedPriceafterComa}
+            <span class="price" itemprop="price" content="{$product.rounded_display_price}">{$priceBeforeComa}<span class="afterComaPrice"><span class="euro">€</span>{$priceAfterComa}</span></span>
+          </div>
+          <div class="product_discountOrFlag">
+                {if $product.has_discount}
+                    {hook h='displayProductPriceBlock' product=$product type="old_price"}
+                    <span class="regular-price">{$product.regular_price}</span>
+                {/if}
+            {if $product.has_discount}
+              {if $product.discount_type === 'percentage'}
+                <span class="discount-product discount-percentage"> - {$product.discount_percentage_absolute}</span>
+              {else}
+                <span class="discount-product discount-amount"> - {$product.discount_to_display} </span>
+              {/if}
             {/if}
-          {/if}
+          </div>
         </div>
 
         {block name='product_unit_price'}

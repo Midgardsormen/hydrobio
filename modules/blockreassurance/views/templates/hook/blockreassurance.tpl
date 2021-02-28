@@ -22,23 +22,17 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-<nav data-depth="{$breadcrumb.count}" class="breadcrumb row hidden-sm-down container">
-  <ol itemscope itemtype="http://schema.org/BreadcrumbList">
-    {block name='breadcrumb'}
-      {foreach from=$breadcrumb.links item=path name=breadcrumb}
-        {block name='breadcrumb_item'}
-          {if not $smarty.foreach.breadcrumb.last}
-            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <a itemprop="item" href="{$path.url}"><span itemprop="name">{$path.title}</span></a>
-              <meta itemprop="position" content="{$smarty.foreach.breadcrumb.iteration}">
-            </li>
-          {elseif isset($path.title)}
-            <li>
-              <span>{$path.title}</span>
-            </li>
-          {/if}
-        {/block}
+{if $elements}
+  <div id="block-reassurance" class="container">
+    <ul>
+      {foreach from=$elements item=element}
+        <li>
+          <div class="block-reassurance-item">
+            <img src="{$element.image}" alt="{$element.text}">
+            <span class="h6">{$element.text}</span>
+          </div>
+        </li>
       {/foreach}
-    {/block}
-  </ol>
-</nav>
+    </ul>
+  </div>
+{/if}

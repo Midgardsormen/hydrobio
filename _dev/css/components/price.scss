@@ -1,0 +1,132 @@
+.price_section{
+    display: flex;
+    height: 60px;
+    #product &{
+        @include media-breakpoint-up(xl) {
+        height: 80px;
+        }
+    }
+    position: relative;
+    z-index: 4;
+    background: $white;
+    .product-price-and-shipping {
+      background-color: $brand-primary;
+      font-weight: 900;
+      color: $brand-quaternary;
+      text-align: center;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      
+      font-size: $display4-size;
+      padding: 0 $small-space;
+      width: 50%;
+      max-width: 200px;
+      #product &{
+        width:auto;
+        padding: 0 $medium-space;
+      }
+      display: flex;
+      border-radius: 0 0 0 15px;
+      &--discount{
+        background-color: $brand-discount;
+        color: $white;
+      }
+      .price{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: $price-size1;
+        #product &{
+          @include media-breakpoint-up(xl) {
+            font-size:$price-size2 ;
+          }
+        }
+        .afterComaPrice{
+          font-weight: 700;
+          font-size: $font-size-sm;
+          display: flex;
+          flex-direction: column;
+          margin-left: 5px;
+          line-height: 1;
+          
+          #product &{
+            @include media-breakpoint-up(xl) {
+              font-size: $price-euro3;
+            }
+          }
+          .euro{
+            font-size: $display4-size;
+            #product &{
+              @include media-breakpoint-up(xl) {
+                font-size: $price-euro2;
+              }
+            }
+          }
+        }
+      }
+
+      .discount-product {
+        display: none;
+      }
+    }
+    .product_discountOrFlag{
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      #product &{
+        width: auto;
+        margin-left: $medium-space;
+
+      }
+      .regular-price {
+        display: inline-block;
+        font-size: $base-font-size;
+        color: $brand-secondary;
+        font-weight: 700;
+        text-decoration: line-through;
+        margin-bottom: 5px;
+      }
+      .discount-percentage{
+        &.discount-product{
+          font-size: $display3-size;
+          font-weight: 900;
+          color: $brand-discount;
+        }
+      }
+      .product-flags {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 0;
+        .product-flag {
+          display: flex;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          align-items: center;
+          justify-content: center;
+          font-weight: 900;
+          margin: 0;
+          color: $white;
+          &.new {
+            background: $brand-new;
+          }
+          &.pack {
+            background: #bc5ea6;
+          }
+          &.online-only {
+            background: $btn-tertiary-color;
+          }
+          &.firstPrice{
+            background: #ECA515;
+            color: $brand-secondary;
+          }
+        }
+      }
+    }
+  }

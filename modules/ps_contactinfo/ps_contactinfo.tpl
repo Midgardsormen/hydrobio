@@ -22,7 +22,42 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-
+{if $page.page_name == 'product'}
+<div class="secondary-card">
+  {if $contact_infos.phone}
+    <div class="contact-info__phone">
+      {* [1][/1] is for a HTML tag. *}
+      {l s='Contact us: [2] [1]%phone%[/1]'
+        sprintf=[
+        '[1]' => '<span>',
+        '[/1]' => '</span>',
+        '[2]' => '<span class="contactInfoIcon"><i class="material-icons">smartphone</i></span>',
+        '%phone%' => $contact_infos.phone
+        ]
+        d='Shop.Theme.Global'
+      }
+    </div>
+  {/if}
+  {if $contact_infos.email && $display_email}    
+    <div class="contact-info__mail">
+      {* [1][/1] is for a HTML tag. *}
+      {l
+        s='[2] [1]%email%[/1]'
+        sprintf=[
+          '[1]' => '<a href="mailto:'|cat:$contact_infos.email|cat:'" class="dropdown">',
+          '[/1]' => '</a>',
+          '[2]' => '<span class="contactInfoIcon"><i class="material-icons">email</i></span>',
+          '%email%' => $contact_infos.email
+        ]
+        d='Shop.Theme.Global'
+      }    
+    </div>
+  {/if}
+  <div class="contact-info__contact-form">
+       <a href="{$urls.pages.contact}" >{l s='Contact form' mod='ps_contactinfo'}</a>
+  </div>
+</div>
+{else}
 <div class="block-contact col-md-3 links wrapper">
   <div class="hidden-sm-down">
       {$contact_infos.address.formatted nofilter}
@@ -71,3 +106,4 @@
     </div>
   </div>
 </div>
+{/if}

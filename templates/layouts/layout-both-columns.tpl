@@ -53,15 +53,18 @@
       {/block}
 
       <section id="wrapper" >
-        <div {if $page.page_name == 'product' || $page.page_name == 'category' || $page.page_name == 'best-sales'} class="container"{/if}>
+        <div {if $page.page_name == 'category' || $page.page_name == 'best-sales'} class="container"{/if}>
           {hook h="displayWrapperTop"}
-          <div id="breadcrumbElement">
+
+          <div id="breadcrumbElement" {if $page.page_name == 'product'} class="container"{/if}>
           {block name='breadcrumb'}
             {include file='_partials/breadcrumb.tpl'}
           {/block}
           </div>
-          
+          {if $page.page_name != 'product'} 
             <div class="row">
+          {/if}
+            
               {block name="left_column"}
                 <div id="left-column" class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
                   {if $page.page_name == 'product'}
@@ -93,7 +96,9 @@
               {/block}
 
             {hook h="displayWrapperBottom"}
+          {if $page.page_name != 'product'} 
             </div>
+          {/if}
           </div>
       </section>
 

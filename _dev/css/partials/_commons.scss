@@ -64,7 +64,7 @@ p {
 .h1,
 .h2,
 .h3 {
-  color: $brand-secondary;
+  color: $brand-quaternary;
 }
 
 .h4 {
@@ -82,7 +82,13 @@ p {
     margin-right: $small-space;
   }
 }
+.btn-primary{
+  background-color: $brand-quaternary;
 
+  &:hover{
+    color: $brand-quaternary;
+  }
+}
 .btn-tertiary {
   @extend .btn-secondary;
   padding: 0.25rem;
@@ -121,7 +127,10 @@ p {
 
 .card {
 }
-
+.secondary-card{
+  background:$brand-tertiary;
+  padding: $medium-space $large-space;
+}
 label,
 .label {
   font-size: 0.875rem;

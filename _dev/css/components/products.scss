@@ -5,7 +5,14 @@
     margin: 0 auto;
   }
 }
-
+.product-reference{
+  font-size: $font-size-h3;
+  color: $brand-quaternary;
+  margin-bottom: $small-space;
+  label{
+    font-size: $font-size-h3;
+  }
+}
 .product-price {
   display: inline-block;
   color: $brand-primary;
@@ -24,7 +31,11 @@
     margin-bottom: 1rem;
     border: none;
   }
-
+  .product-add-to-cart {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+  }
   .product-description {
     img {
       max-width: 100%;
@@ -80,12 +91,14 @@
 .product-actions {
   .control-label {
     display: block;
-    width: 100%;
     margin-bottom: 0.375rem;
   }
-
+  .product-variants {
+    display: flex;
+    justify-content: space-between;
+}
   .add-to-cart {
-    height: 2.75rem;
+    height: 60px;
     padding-top: 0.625rem;
     line-height: inherit;
 
@@ -102,6 +115,7 @@
   .add {
     display: inline-flex;
     float: left;
+    margin-left: $small-space;
     margin-bottom: 0.5rem;
   }
 
@@ -113,8 +127,10 @@
     width: 3rem;
     height: 2.75rem;
     padding: 0.175rem 0.5rem;
-    color: $gray-darker;
+    color: $brand-quaternary;
     background-color: #fff;
+    border: none;
+    height: 60px;
   }
 
   .input-group-btn-vertical {
@@ -227,10 +243,8 @@
 }
 
 .tabs {
-  @include box-shadow();
-  padding: $medium-space $large-space;
+  padding: $medium-space 0;
   margin-top: 2rem;
-  background: #fff;
 
   .tab-pane {
     padding-top: $medium-space;
@@ -245,9 +259,10 @@
       border: 0 solid transparent;
 
       &.active {
-        color: $brand-primary;
+        color: $brand-quaternary;
         border: none;
-        border-bottom: $brand-primary 3px solid;
+        border-bottom: $brand-quaternary 3px solid;
+        background:none;
       }
 
       &:hover {
@@ -266,10 +281,13 @@
 .product-cover {
   position: relative;
   margin-bottom: $medium-space;
+  @include border-radius();
+  @include box-shadow-extra-light();
+  overflow: hidden;
 
   img {
-    @include box-shadow();
     background: #fff;
+    
   }
 
   .layer {
@@ -511,7 +529,9 @@
     display: inline;
 
     > .thumb {
-      @include box-shadow();
+      @include border-radius();
+      @include border-radius();
+      overflow: hidden;
       margin-bottom: $small-space;
       cursor: pointer;
 
@@ -521,7 +541,7 @@
 
       &.selected,
       &:hover {
-        border: $brand-primary 3px solid;
+        border: $brand-primary 2px solid;
       }
     }
   }
@@ -797,7 +817,7 @@
   align-items: center;
   width: 100%;
   margin-top: 1.5rem;
-
+  font-size: $font-size-xs;
   ul {
     margin-bottom: 0;
   }
@@ -805,14 +825,14 @@
   li {
     @include box-shadow-light();
     display: inline-block;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: $large-space;
+    height: $large-space;
     margin-left: 0.5rem;
     cursor: pointer;
     background-color: #fff;
     background-repeat: no-repeat;
     background-position: 0.25rem 0.25rem;
-    background-size: 2rem 2rem;
+    background-size: 1.5rem 1.5rem;
     border-radius: 50%;
     @include transition(all 0.2s ease-in);
 

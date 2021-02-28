@@ -10,7 +10,7 @@
   }
 
   .breadcrumb {
-    padding: $large-space $small-space $small-space;
+    padding: $large-space 0 $small-space;
     background: transparent;
 
     &[data-depth="1"] {
@@ -27,13 +27,17 @@
       font-size: $font-size-xs;
       &::after {
         margin: 0.3125rem;
-        color: $gray;
-        content: "/";
+        color: $brand-quaternary;
+        content: "navigate_next";
+        font-family: "Material Icons", Arial, sans-serif;
+        font-size: $base-font-size;
+        display: inline-block;
+        vertical-align: middle;
       }
 
       &:last-child {
         margin: 0;
-        color: $gray;
+        color: $brand-quaternary;
         content: "/";
 
         &::after {
